@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback} from "react";
 import axios from "axios";
 import "./App.css";
 
@@ -9,19 +9,7 @@ const MutualFund = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [showDetails, setShowDetails] = useState(false);
 
-  useEffect(() => {
-    // Fetching the list of funds
-    axios
-      .get("https://api.mfapi.in/mf/search?q=sbi")
-      .then((response) => {
-        setFunds(response.data);
-      })
-      .catch((error) => {
-        console.error("Failed to fetch mutual funds:", error);
-      });
-  }, []);
-
-  const handleSearch = () => {
+   const handleSearch = useCallback(() => {
     // Fetching funds based on search query
     axios
       .get(`https://api.mfapi.in/mf/search?q=${searchQuery}`)
@@ -31,7 +19,25 @@ const MutualFund = () => {
       .catch((error) => {
         console.error("Failed to search mutual funds:", error);
       });
-  };
+  }, [searchQuery]); 
+
+  useEffect(() => {
+    
+    let timerId;
+
+    const debouncedHandleSearch = () => {
+      clearTimeout(timerId);
+
+      timerId = setTimeout(() => {
+        handleSearch();
+      }, 300); 
+    };
+    debouncedHandleSearch();
+
+    return () => {
+      clearTimeout(timerId);
+    };
+  }, [searchQuery, handleSearch]);
 
   const handleFundSelect = (fund) => {
     // Adding selected fund to the portfolio
