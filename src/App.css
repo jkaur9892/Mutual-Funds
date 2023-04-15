@@ -1,0 +1,85 @@
+h1,
+h2 {
+  text-align: center;
+  color: #346ccb;
+}
+
+.search {
+  background-color: rgb(206 224 243);
+  padding: 10px;
+  border: none;
+  margin-right: 10px;
+  width: 88%;
+  border-radius: 20px;
+}
+
+.searchbtn {
+  background-color: #346ccb;
+  color: #fbfcfd;
+  padding: 10px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  width: 120px;
+}
+.detail-popup {
+  position: absolute;
+  top: 20%;
+  left: 40%;
+  padding: 10px;
+  background-color: rgb(174 202 230);
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 300px;
+  z-index: 1;
+}
+
+.detail-popup h2 {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.detail-popup p {
+  margin: 0;
+  margin-bottom: 5px;
+}
+
+.detail-popup-buttons {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 10px;
+}
+
+.detail-popup-buttons button {
+  margin-left: 5px;
+}
+
+.addtolistbtn {
+  background-color: #809fd4;
+  color: #fbfcfd;
+  padding: 10px 10px;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+}
+.addtolistbtn:hover {
+  background-color: #174f8b;
+  color: #eef1f5;
+}
+
+.detailbtn {
+  background-color: #2d579b;
+  color: #fbfcfd;
+  padding: 10px 10px;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  width: 100px;
+}
+
+.detailbtn:hover {
+  background-color: #669fe6;
+  color: #0e223b;
+}
